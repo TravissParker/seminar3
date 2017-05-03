@@ -60,7 +60,7 @@ public class View {
 		
 		System.out.println("[View>>] Third open inspection");
 		ctrl.fetchNextInspection();
-		ctrl.recordResult(false, "Acceptable emission levels measured.");
+		ctrl.recordResult(false, "Unacceptable emission levels measured.");
 		
 		ctrl.fetchNextInspection();
 		

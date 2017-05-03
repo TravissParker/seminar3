@@ -56,7 +56,6 @@ public class SubInspection {//Test[X]
 		return this.remark;
 	}
 	
-	//I think we can tweak it so that this one doesn't have to be public.
 	/**
 	 * Declared public due to being located in different package than Inspection class.
 	 * @return The price of the given inspection.

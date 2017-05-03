@@ -44,10 +44,10 @@ public class InspectionTest {
 	
 	@Test
 	public void testToString() {
-		String expected = "Inspection for register number: " + this.regNumber + "\n" 
-						+ "Inspection: Brakes" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n" 
-						+ "Inspection: Tires" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n"
-						+ "Inspection: Emission" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n";
+		String expected = "Inspection result for register number: " + this.regNumber + "\n\n" 
+						+ "Inspection: Brakes" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n\n" 
+						+ "Inspection: Tires" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n\n"
+						+ "Inspection: Emission" + "\nInspection Result: " + false + "\nRemark: NO REMARK" + "\n\n";
 		
 		String result = insp.toString();
 		assertEquals("Strings do not match", expected, result);
