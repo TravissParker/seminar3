@@ -73,7 +73,7 @@ public class Controller {//Test[]
 	/**
 	 * Fetch the next inspection.
 	 */
-	public void fetchNextInspection() {//Test[]
+	public void fetchNextInspection() {//Test[T]
 		inspectionManager.fetchNextInspection();
 	}
 		

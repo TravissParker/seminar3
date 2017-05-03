@@ -83,4 +83,16 @@ public class ControllerTest {
 		
 	}
 
+	
+	@Test
+	public void testFetchNextInspection() {
+		cont.checkForInspection("ABC123");
+		cont.payInspectionCard(card);
+		cont.fetchNextInspection();
+		String expected = "Inspection: Brakes\nInspection Result: " + false	+ "\nRemark: NO REMARK";
+		String result = outContent.toString();
+				
+		assertTrue("Wrong printout.", result.contains(expected));
+	}
+
 }

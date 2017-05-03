@@ -10,7 +10,10 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import se.kth.iv1350.inspectVehicle.integration.DBCaller;
+import se.kth.iv1350.inspectVehicle.integration.Database;
 import se.kth.iv1350.inspectVehicle.integration.Printer;
+import se.kth.iv1350.inspectVehicle.integration.SubInspection;
 @SuppressWarnings(value = "unused")
 public class InspectionManagerTest {
 	private InspectionManager IM;
@@ -71,5 +74,14 @@ public class InspectionManagerTest {
 		assertFalse(IM.getInspectionPaid());
 		IM.setInspectionPaid(true);
 		assertTrue(IM.getInspectionPaid());
+	}
+	
+	@Test
+	public void testUpdateDatabase() {
+		SubInspection[] sub = { new SubInspection("Brakes", 100), new SubInspection("Tires", 200), new SubInspection("Emission", 300) };
+		DBCaller db = new DBCaller();
+		Database database = new Database();
+		db.submitResults(regNumberExistA, sub);
+		assertEquals(true, database.databaseUpdated);
 	}
 }

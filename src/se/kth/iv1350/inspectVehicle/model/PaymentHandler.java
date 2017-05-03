@@ -10,8 +10,8 @@ import se.kth.iv1350.inspectVehicle.integration.Printer;
  *
  */
 public class PaymentHandler {//Test[O - Take another look at untested methods/inner class]
-	CardPayment cardPayment;//Changed to package for testing
-	CashPayment cashPayment;//Changed to package for testing
+	CardPayment cardPayment;
+	CashPayment cashPayment;
 	private Cost amountToPay;
 	private int amountPaid;
 	private Receipt receipt;
@@ -52,7 +52,7 @@ public class PaymentHandler {//Test[O - Take another look at untested methods/in
 		public CardPayment(CreditCardDTO CCDTO) {
 			this.card = new Creditcard(CCDTO);
 		}
-		//Dummy implementation. The function always returns true. It is not set up to do any communication with any other class.
+		//Dummy implementation: the function always returns true. It is not set up to do any communication with any other class.
 		boolean performPayment() {//Test[T]
 			this.paymentAuthorized = true;
 //			approved = PaymentAuthorization.authorizePayment(null, card.gettCVC());

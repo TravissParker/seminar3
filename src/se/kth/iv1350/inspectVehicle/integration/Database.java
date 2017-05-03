@@ -7,6 +7,7 @@ package se.kth.iv1350.inspectVehicle.integration;
  */
 public class Database {//Test[]
 	private DBEntry[] entries = { new DBEntry("ABC123", 3), new DBEntry("XYZ789", 3) };
+	public static boolean databaseUpdated = false;
 	
 	boolean searchRegNumber(String regNumber) { //Test[R]
 		boolean regNumberFound = false;
@@ -46,6 +47,6 @@ public class Database {//Test[]
 	}
 	
 	public void updateEntry(String regNumber, SubInspection[] subInsepction) {
-		
+		databaseUpdated = true;
 	}
 }

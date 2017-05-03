@@ -52,15 +52,15 @@ public class View {
 		System.out.println("\n[View>>] The inspector fetches the open inspections.\n");
 		System.out.println("[View>>] First open inspection");
 		ctrl.fetchNextInspection();
-		ctrl.recordResult(true, "C1");
+		ctrl.recordResult(true, "Brakes are in good condition.");
 
 		System.out.println("[View>>] Second open inspection");
 		ctrl.fetchNextInspection();
-		ctrl.recordResult(false, "C2");
+		ctrl.recordResult(false, "Pattern on left front tier is too shallow.");
 		
 		System.out.println("[View>>] Third open inspection");
 		ctrl.fetchNextInspection();
-		ctrl.recordResult(false, "C3");
+		ctrl.recordResult(false, "Acceptable emission levels measured.");
 		
 		ctrl.fetchNextInspection();
 		

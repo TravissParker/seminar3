@@ -99,19 +99,15 @@ public class InspectionManager {//Test[X]
 	 * @param result The result of the inspection, pass or fail (<code>true</code> or <code>false</code>).
 	 * @param remark User generated comment.
 	 */
-	public void recordResult(boolean result, String remark) {
+	public void recordResult(boolean result, String remark) {//Test[]
 		currentInspection.recordResult(result, remark);
-//		if(finalInspectionPerformed()) {
-//			updateDatabase();
-//			printInspectionResult();
-//		}
 	}
 	
 	private boolean finalInspectionPerformed(){
 		return currentInspection.getIndex() == currentInspection.getNumberOfInspections();
 	}
 	
-	private void updateDatabase() {
+	private void updateDatabase() {//Test[T]
 		dbCaller.submitResults(currentInspection.getRegNumber(), currentInspection.getSubInspections());		
 	}
 

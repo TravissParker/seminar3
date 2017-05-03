@@ -8,7 +8,7 @@ public class DBEntry {//Test[]
 	private String	registerNumber;
 	private int		openInspections;
 	
-	private DBInspection[] inspection = { new DBInspection("Brakes", 99), new DBInspection("Tires", 200), new DBInspection("Emission", 300) };
+	private DBInspection[] inspection = { new DBInspection("Brakes", 100), new DBInspection("Tires", 200), new DBInspection("Emission", 300) };
 
 	
 	public DBEntry(String registerNumber, int openInspections) {

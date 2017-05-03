@@ -4,7 +4,7 @@ package se.kth.iv1350.inspectVehicle.integration;
  * In charge of communicating with the database. 
  *
  */
-public class DBCaller {//Test[]
+public class DBCaller {
 	private Database database = new Database();
 	
 	/**
@@ -33,14 +33,14 @@ public class DBCaller {//Test[]
 			subInspection[i] = new SubInspection(typeOfInspection, price);
 		}		
 		return subInspection;
-	}
+	}	
 	
 	/**
 	 * Submits the result of the inspection to the database.
 	 * @param regNumber Identifies which subset of inspections that are to be updated.
 	 * @param subInspection Contains the new information.
 	 */
-	public void submitResults(String regNumber, SubInspection[] subInspection) {//Test[]
+	public void submitResults(String regNumber, SubInspection[] subInspection) {//Test[T]
 		database.updateEntry(regNumber, subInspection);
 	}
 }

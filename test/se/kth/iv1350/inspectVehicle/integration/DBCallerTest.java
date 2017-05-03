@@ -10,12 +10,13 @@ import org.junit.Test;
 
 public class DBCallerTest {
 	DBCaller db;
-//	Database database;
+	String regNumberTrue = "ABC123";
+	Database database;
 	
 	@Before
 	public void setUp() {
 		db = new DBCaller();
-//		database = new Database();
+		database = new Database();
 	}
 	
 	@After
@@ -27,9 +28,8 @@ public class DBCallerTest {
 	
 	@Test
 	public void testRegNumberValidTRUE() {
-		String regNumber = "ABC123";
 		boolean expected = true;
-		boolean result = db.regNumberValid(regNumber);
+		boolean result = db.regNumberValid(regNumberTrue);
 		
 		assertEquals(expected, result);
 	}
@@ -54,12 +54,18 @@ public class DBCallerTest {
 	
 	@Test
 	public void testcreateSubInspectionArray() {
-		String regNumber = "ABC123";
 		SubInspection[] manual = { new SubInspection("Brakes", 100), new SubInspection("Tires", 200), new SubInspection("Emission", 300) };
-		SubInspection[] automatic = db.createSubInspectionArray(regNumber);
+		SubInspection[] automatic = db.createSubInspectionArray(regNumberTrue);
 		String m = Arrays.toString(manual);
 		String a = Arrays.toString(automatic);
 		
 		assertEquals(m, a);
+	}
+	
+	@Test
+	public void testSubmitResults() {		
+		SubInspection[] sub = { new SubInspection("Brakes", 100), new SubInspection("Tires", 200), new SubInspection("Emission", 300) };
+		db.submitResults(regNumberTrue, sub);
+		assertEquals(true, database.databaseUpdated);
 	}
 }
