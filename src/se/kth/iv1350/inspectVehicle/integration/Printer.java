@@ -15,7 +15,7 @@ public class Printer {//Test[X]
 	
 	/**
 	 * Prints the result of the inspection to the standard output unit.
-	 * @param result A <code>String</code> representing the result of the inspeciton.
+	 * @param result A <code>String</code> representing the result of the inspection.
 	 */
 	public void printResult(String result) {//Test[T]
 		System.out.println(formater(result));

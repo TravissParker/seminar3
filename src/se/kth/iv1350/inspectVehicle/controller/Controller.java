@@ -13,19 +13,19 @@ import se.kth.iv1350.inspectVehicle.model.PaymentHandler;
 public class Controller {//Test[]
 	private Garage garage = new Garage();
 	private InspectionManager inspectionManager = new InspectionManager();
-	private PaymentHandler paymentHandler = new PaymentHandler();//Create it here for now instead of having cash and card each create it.
+	private PaymentHandler paymentHandler = new PaymentHandler();
 	
 	/**
 	 * Initiates a new inspection, with a new customer.
 	 */
-	public void startNewInspection() {//Test[M]	Unsure how to test this one.
+	public void startNewInspection() {
 		garage.nextCustomer();				
 	}
 	
 	/**
 	 * Changes the sate of the door to closed. 
 	 */
-	public void closeDoor() {//Test[M] Unsure how to test this one.
+	public void closeDoor() {
 		garage.closeDoor();			
 	}
 	

@@ -2,23 +2,14 @@ package se.kth.iv1350.inspectVehicle.model;
 
 import se.kth.iv1350.inspectVehicle.integration.SubInspection;
 
-/**
- * This class represents the inspection session for one customer, it contains all the information that is recorded under the inspection.
- *
- */
-public class Inspection {//Test[X]
+ class Inspection {//Test[X]
 	private String regNumber;
 	private SubInspection[] subInspection;
 	private Cost inspectionCost;
 	private boolean inspectionPaid = false;
 	private int index = 0;
 	
-	/**
-	 * Creates an instance representing an inspection.
-	 * @param regNumber Identifier for the vehicle/customer.
-	 * @param subInspection An array of <code>SubInspection</code>, each inspection contains at least one <code>SubInspection</code>. 
-	 */
-	public Inspection(String regNumber, SubInspection[] subInspection) {
+	 Inspection(String regNumber, SubInspection[] subInspection) {
 		this.regNumber = regNumber;
 		this.subInspection = subInspection;
 		int amount = summarizePrices();

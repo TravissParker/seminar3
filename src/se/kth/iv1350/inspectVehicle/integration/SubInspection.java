@@ -43,7 +43,8 @@ public class SubInspection {//Test[X]
 	private void setResult(boolean result) {//Test[T]
 		this.result = result;
 	}
-	//Never used
+
+	@SuppressWarnings("unused")
 	private boolean getResult() {//Test[T]
 		return this.result;
 	}
@@ -51,7 +52,8 @@ public class SubInspection {//Test[X]
 	private void setRemark(String remark) {//Test[T]
 		this.remark = remark;
 	}
-	//Never used
+	
+	@SuppressWarnings("unused")
 	private String getRemark() {//Test[T]
 		return this.remark;
 	}

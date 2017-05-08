@@ -17,9 +17,10 @@ public class PaymentHandler {//Test[O - Take another look at untested methods/in
 	private Receipt receipt;
 	private Printer printer;
 	
-	public PaymentHandler() {
-		//Needed for the static creation of a payment handler object in controller header.
-	}
+	/**
+	 * Creates an instance of <code>PaymentHandler</code> without any paramters.
+	 */
+	public PaymentHandler() {}
 	
 	/**
 	 * Creates an instance representing a payment.
@@ -40,6 +41,7 @@ public class PaymentHandler {//Test[O - Take another look at untested methods/in
 			return true;
 		}
 		
+		@SuppressWarnings("unused")
 		CashRegister getCashRegister() {
 			return this.cashRegister;
 		}
@@ -47,6 +49,7 @@ public class PaymentHandler {//Test[O - Take another look at untested methods/in
 	
 	private class CardPayment {
 		private boolean paymentAuthorized;
+		@SuppressWarnings("unused")
 		private Creditcard card;
 		
 		public CardPayment(CreditCardDTO CCDTO) {

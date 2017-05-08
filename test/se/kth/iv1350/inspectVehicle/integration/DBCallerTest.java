@@ -66,6 +66,6 @@ public class DBCallerTest {
 	public void testSubmitResults() {		
 		SubInspection[] sub = { new SubInspection("Brakes", 100), new SubInspection("Tires", 200), new SubInspection("Emission", 300) };
 		db.submitResults(regNumberTrue, sub);
-		assertEquals(true, database.databaseUpdated);
+		assertEquals(true, Database.databaseUpdated);
 	}
 }

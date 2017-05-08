@@ -82,6 +82,6 @@ public class InspectionManagerTest {
 		DBCaller db = new DBCaller();
 		Database database = new Database();
 		db.submitResults(regNumberExistA, sub);
-		assertEquals(true, database.databaseUpdated);
+		assertEquals(true, Database.databaseUpdated);
 	}
 }
