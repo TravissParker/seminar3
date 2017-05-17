@@ -47,8 +47,8 @@ import se.kth.iv1350.inspectVehicle.integration.SubInspection;
 		return s;
 	}
 	
-	void displayNextInspection() {//Test[T]	
-		System.out.println(subInspection[index].toString() + "\n");
+	String displayNextInspection() {//Test[T]	
+		return (subInspection[index].toString() + "\n");
 	}
 	
 	void recordResult(boolean result, String remark) {

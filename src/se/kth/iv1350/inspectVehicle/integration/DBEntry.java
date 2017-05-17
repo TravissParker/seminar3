@@ -14,12 +14,13 @@ public class DBEntry {//Test[]
 	public DBEntry(String registerNumber, int openInspections) {
 		this.registerNumber = registerNumber;
 		this.openInspections = openInspections;
+		if(openInspections == 0) {
+			inspection = null;
+		}
+		
+		
 	}
-	
-//	void inspectionMaker(){//Test[]
-//		DBInspection[] inspection = { new DBInspection("Brakes", 100), new DBInspection("Tires", 200), new DBInspection("Emission", 300) };
-//	}
-	
+		
 	String getRegisterNumber() {//Test[R]
 		return this.registerNumber;
 	}

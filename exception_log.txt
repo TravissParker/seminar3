@@ -1,0 +1,8 @@
+May 17, 2017 6:22:22 PM Exception thrown
+se.kth.iv1350.inspectVehicle.integration.NoInspectionException: There are no open inspections for this register number.
+	at se.kth.iv1350.inspectVehicle.integration.DBCaller.createSubInspectionArray(DBCaller.java:67)
+	at se.kth.iv1350.inspectVehicle.model.InspectionManager.createInspection(InspectionManager.java:44)
+	at se.kth.iv1350.inspectVehicle.model.InspectionManager.isRegNumberValid(InspectionManager.java:33)
+	at se.kth.iv1350.inspectVehicle.controller.Controller.checkForInspection(Controller.java:54)
+	at se.kth.iv1350.inspectVehicle.view.View.sampleExecution(View.java:59)
+	at se.kth.iv1350.inspectVehicle.startup.Main.main(Main.java:21)

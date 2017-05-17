@@ -1,8 +1,14 @@
 package se.kth.iv1350.inspectVehicle.model;
 
+import java.util.ArrayList;
+
 import se.kth.iv1350.inspectVehicle.integration.DBCaller;
+import se.kth.iv1350.inspectVehicle.integration.FormatException;
+import se.kth.iv1350.inspectVehicle.integration.NoInspectionException;
 import se.kth.iv1350.inspectVehicle.integration.Printer;
+import se.kth.iv1350.inspectVehicle.integration.RegNumberNotFoundException;
 import se.kth.iv1350.inspectVehicle.integration.SubInspection;
+import se.kth.iv1350.inspectVehicle.view.Observer;
 
 /**
  * Connects the database caller with the creation of the actual inspection object. Also handles relay of information back to controller, view. 
@@ -14,28 +20,27 @@ public class InspectionManager {//Test[X]
 	private DBCaller dbCaller 	= new DBCaller();
 	private ErrorMessage errorMsg;
 	private Printer printer;
+	private ArrayList<Observer> observers = new ArrayList<Observer>();
 	
 	/**
 	 * Checks if the register number supplied exists in the database. The outcome of this method determine the state of the InspectionManager objects, cost and errorMsg, and prints to the standard output unit the result of
 	 * the relevant information.
 	 * @param regNumber The register number belonging to the current vehicle. Inspections are connected to the register number.
 	 */
-	public boolean isRegNumberValid(String regNumber) {//Test[T]
+	public boolean isRegNumberValid(String regNumber) throws RegNumberNotFoundException, NoInspectionException, FormatException  {//Test[T]
 		boolean regNumberValid = dbCaller.regNumberValid(regNumber);
 		if(regNumberValid) {
 			createInspection(regNumber);
 			printCost();
-//			System.out.println(this.currentInspection.getCostObj());
 			return regNumberValid;
 		} else {
 			setErrorMsg();
 			printErrorMsg();
-//			System.out.println(this.errorMsg);
 			return regNumberValid;
 		}
 	}
 	
-	void createInspection(String regNumber) {//Test[T]
+	void createInspection(String regNumber) throws NoInspectionException {//Test[T]
 		subInspection = dbCaller.createSubInspectionArray(regNumber);
 		currentInspection = new Inspection(regNumber, subInspection);
 	}
@@ -84,13 +89,17 @@ public class InspectionManager {//Test[X]
 		return this.currentInspection.getInspectionPaid();
 	}
 		
-	public void fetchNextInspection(){
+	/**
+	 * Fetches the next open inspection and updates the database if the final inspection has been fetched.
+	 * @return The string that is printed in View.
+	 */
+	public String fetchNextInspection(){
 		if(finalInspectionPerformed()) {
-			System.out.println("No more inspections available for this vehicle.\n");
 			updateDatabase();
 			printInspectionResult();
+			return "No more inspections available for this vehicle.\n";
 		} else {
-			currentInspection.displayNextInspection();
+			return currentInspection.displayNextInspection();
 		}
 	}
 	
@@ -100,7 +109,9 @@ public class InspectionManager {//Test[X]
 	 * @param remark User generated comment.
 	 */
 	public void recordResult(boolean result, String remark) {//Test[]
+//		notifyObserver(result);
 		currentInspection.recordResult(result, remark);
+		
 	}
 	
 	private boolean finalInspectionPerformed(){

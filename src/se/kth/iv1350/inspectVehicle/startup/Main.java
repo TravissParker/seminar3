@@ -1,5 +1,7 @@
 package se.kth.iv1350.inspectVehicle.startup;
 
+import java.io.IOException;
+
 import se.kth.iv1350.inspectVehicle.controller.Controller;
 import se.kth.iv1350.inspectVehicle.view.View;
 
@@ -14,7 +16,11 @@ public class Main {
 	 */
 	public static void main(String[] args) {//Test[]		
 		Controller ctrl = new Controller();
-		View view = new View(ctrl);
-		view.sampleExecution();
+		try {
+			View view = new View(ctrl);
+			view.sampleExecution();
+		} catch(IOException e) {
+			System.out.println("An IOException was thrown: " + e.getMessage());
+		}
 	}
 }

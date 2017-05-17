@@ -6,22 +6,40 @@ package se.kth.iv1350.inspectVehicle.integration;
  *
  */
 public class Database {//Test[]
-	private DBEntry[] entries = { new DBEntry("ABC123", 3), new DBEntry("XYZ789", 3) };
+	private DBEntry[] entries = { new DBEntry("ABC123", 3), new DBEntry("XYZ789", 0) };
 	public static boolean databaseUpdated = false;
 	
-	boolean searchRegNumber(String regNumber) { //Test[R]
+	boolean searchRegNumber(String regNumber) throws EntryNotFoundException { //Test[R]
 		boolean regNumberFound = false;
-		for(int i = 0; i < entries.length; i++) {
-			if(regNumber.equals(entries[i].getRegisterNumber())) {
-					regNumberFound = true;
-					break;
+	
+			regNumberFound = traversDatabase(regNumber);
+			
+			if(!regNumberFound){
+				throw new EntryNotFoundException("The specified entry [" + regNumber + "] was not found in the database.");
 			}
-		}
+
 		return regNumberFound;	
 	}
 	
-	int numberOfOpenInspections(int index) {
-		return entries[index].getOpenInspections();
+	private boolean traversDatabase(String regNumber) {
+		boolean regNumberFound = false;
+		for(DBEntry entry : entries) {
+			if(regNumber.equals(entry.getRegisterNumber())) {
+				regNumberFound =  true;
+				break;
+			}
+		}
+		return regNumberFound; 
+	}
+	
+	
+	int numberOfOpenInspections(int index) throws NoInspectionException  {
+		int openInspections = entries[index].getOpenInspections();
+		
+		if(openInspections < 1) {
+			throw new NoInspectionException("");
+		}
+		return openInspections;
 	}
 	
 	String getInspectionName(int entryIndex, int inspectionIndex) {
